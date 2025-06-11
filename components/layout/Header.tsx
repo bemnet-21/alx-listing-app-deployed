@@ -2,6 +2,9 @@ import React from 'react'
 import Image from 'next/image'
 import logo from '../../public/assets/Vector.png'
 import { FaSearch } from 'react-icons/fa'
+import Option from './Option'
+import Options from './Options'
+
 
 const Header = () => {
   return (
@@ -25,14 +28,14 @@ const Header = () => {
           <div className="flex items-center justify-center bg-[#FFA800] w-13 h-13 rounded-4xl absolute left-150 top-1.25">
             <FaSearch className="text-white text-4xl font-light" />
           </div>
-
-          
-
         </form>
         <div className='flex gap-2'>
           <button className='bg-[#34967C] p-2 rounded-4xl'>Sign in</button>
           <button className='border border-[#ECECEC] bg-white text-black p-2 rounded-4xl mr-15'>Sign up</button>
         </div>
+      </div>
+      <div className='flex justify-between px-5'>
+        <Options />
       </div>
     </header>
   )
