@@ -1,8 +1,15 @@
 import React from "react"
 
 export interface CardProps {
-    title: string
-    content: string
+    name: string
+    address: Address
+    rating: number
+    category: string []
+    price: number
+    offers: Offers
+    image: string
+    discount?: string
+
 }
 export interface ButtonProps {
     label: string
@@ -40,10 +47,12 @@ export interface OptionProps {
     alt: string
     width: number
     height: number
+    className: string
 }
 
 export interface PillProps {
     label: string
     bgColor?: string
     textColor?: string
+    className?: string
 }
