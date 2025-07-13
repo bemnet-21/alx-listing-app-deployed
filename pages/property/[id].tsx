@@ -1,31 +1,38 @@
-import { PROPERTYLISTINGSAMPLE } from "@/constants/index";
 import { useRouter } from "next/router";
 import PropertyDetail from "@/components/property/PropertyDetail";
-import ReviewSection from "@/components/property/ReviewSection";
-import BookingSection from "@/components/property/BookingSection";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { PropertyProps } from "@/interfaces";
 
 
-export default function PropertPage() {
-    const router = useRouter();
-    const { id } = router.query;
-    const property = PROPERTYLISTINGSAMPLE.find((item) => item.name === id);
+export default function PropertyDetailPage() {
+    const router = useRouter()
+    const { id } = router.query
+    const [property, setProperty] = useState<PropertyProps | null>(null)
+    const [loading, setLoading] = useState(true)
 
-    if (!property) return <p>Property not found</p>;
+    useEffect(() => {
+        const fetchProperty = async () => {
+            if (!id) return;
+            try {
+                const response = await axios.get<PropertyProps>(`api/properties/${id}`)
+                setProperty(response.data)
+            } catch(error) {
+                console.log("Error fetching property details: ", error)
+            } finally {
+                setLoading(false)
+            }
+        }
 
-    return (
-        <div className="">
-            <PropertyDetail property={property} />
-            <BookingSection price={property.price}/>
-            <ReviewSection
-                reviews={[
-                    {
-                    avatar: '/assets/Vector.png',
-                    name: 'Bemnet',
-                    comment: 'Good',
-                    rating: 4.9
-                    }
-                ]}/>
+        fetchProperty()
+    }, [id])
 
-        </div>
-    )
+    if (loading) {
+        return <p>Loading...</p>
+    }
+    if (!property) {
+        return <p>Property not found</p>
+    }
+
+    return <PropertyDetail property={property} />
 }
