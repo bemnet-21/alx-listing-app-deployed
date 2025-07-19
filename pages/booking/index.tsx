@@ -24,8 +24,9 @@ export default function BookingForm() {
     try {
       const response = await axios.post("/api/bookings", formData);
       alert("Booking confirmed!");
+      setFormData(response.data as typeof formData)
     } catch (error) {
-      setError("Failed to submit booking.");
+      setError(`Failed to submit booking. ${error}`);
     } finally {
       setLoading(false);
     }

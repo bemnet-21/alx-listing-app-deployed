@@ -1,6 +1,7 @@
 import React from "react"
 
 export interface CardProps {
+    id: number
     name: string
     address: Address
     rating: number
@@ -56,4 +57,12 @@ export interface PillProps {
     bgColor?: string
     textColor?: string
     className?: string
+}
+
+export interface OrderSummaryProps {
+    propertyName: string
+    startDate: number
+    totalNights: number
+    bookingFee: number
+    price: number
 }

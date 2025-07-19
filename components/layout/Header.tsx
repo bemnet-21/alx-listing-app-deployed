@@ -2,7 +2,6 @@ import React from 'react'
 import Image from 'next/image'
 import logo from '../../public/assets/Vector.png'
 import { FaSearch } from 'react-icons/fa'
-import Option from './Option'
 import Options from './Options'
 
 

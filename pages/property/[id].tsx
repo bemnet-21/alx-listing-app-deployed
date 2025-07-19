@@ -15,7 +15,7 @@ export default function PropertyDetailPage() {
         const fetchProperty = async () => {
             if (!id) return;
             try {
-                const response = await axios.get<PropertyProps>(`api/properties/${id}`)
+                const response = await axios.get<PropertyProps>(`${process.env.NEXT_PUBLIC_API_BASE_URL}/properties/${id}`)
                 setProperty(response.data)
             } catch(error) {
                 console.log("Error fetching property details: ", error)
