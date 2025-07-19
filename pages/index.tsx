@@ -40,7 +40,7 @@ const index: React.FC = () => {
         
         <section className='w-full mt-12 px-4 grid grid-cols-1 gap-6  md:px-16 md:grid-cols-3 '>
           {samples.map((sample, index) => (
-            <Card key={index} id={samples.indexOf(sample)} name={sample.name} address={sample.address} rating={sample.rating} category={sample.category} price={sample.price} offers={sample.offers} image={sample.image} />
+            <Card key={index} id={index} name={sample.name} address={sample.address} rating={sample.rating} category={sample.category} price={sample.price} offers={sample.offers} image={sample.image} />
           ))}
         </section>
     </>
