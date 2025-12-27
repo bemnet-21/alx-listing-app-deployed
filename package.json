@@ -26,5 +26,18 @@
     "eslint-config-next": "15.3.3",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bemnet-21/alx-listing-app-deployed.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bemnet-21/alx-listing-app-deployed/issues"
+  },
+  "homepage": "https://github.com/bemnet-21/alx-listing-app-deployed#readme"
 }

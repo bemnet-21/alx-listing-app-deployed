@@ -11,7 +11,7 @@ const index: React.FC = () => {
   return (
     <>
 {/* width={1608} height={481} */}
-      <section className='w-full flex flex-col-reverse px-4 md:px-16 md:flex-col space-y-2'>
+      <section className='w-full flex flex-col-reverse gap-y-4 px-4 md:px-16 md:flex-col'>
         <div className='relative w-full h-72 md:h-[481px]'>
           <Image src='/assets/image 1.png' alt='background image'  className='rounded-3xl w-full h-auto object-cover' fill priority/>
           <div className='absolute text-white text-center mx-auto top-16 px-4 space-y-3 '>
