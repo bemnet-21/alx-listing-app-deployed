@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { PropertyProps } from "@/interfaces";
 
-
 export default function PropertyDetailPage() {
     const router = useRouter()
     const { id } = router.query
@@ -12,27 +11,25 @@ export default function PropertyDetailPage() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        if (!router.isReady || !id) return;
+
         const fetchProperty = async () => {
-            if (!id) return;
             try {
-                const response = await axios.get<PropertyProps>(`${process.env.NEXT_PUBLIC_API_BASE_URL}/properties/${id}`)
+                const response = await axios.get<PropertyProps>(`/api/properties/${id}`)
+                
                 setProperty(response.data)
             } catch(error) {
-                console.log("Error fetching property details: ", error)
+                console.error("Error fetching property:", error)
             } finally {
                 setLoading(false)
             }
         }
 
         fetchProperty()
-    }, [id])
+    }, [id, router.isReady])
 
-    if (loading) {
-        return <p>Loading...</p>
-    }
-    if (!property) {
-        return <p>Property not found</p>
-    }
+    if (loading) return <p>Loading...</p>
+    if (!property) return <p>Property not found</p>
 
     return <PropertyDetail property={property} />
 }
