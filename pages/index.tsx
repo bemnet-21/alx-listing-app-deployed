@@ -13,7 +13,7 @@ const index: React.FC = () => {
       <section className='w-full flex flex-col-reverse gap-y-4 px-4 md:px-16 md:flex-col'>
         <div className='relative w-full h-72 md:h-[481px]'>
           <Image 
-            src='/assets/image 1.png' 
+            src='/assets/image-1.png' 
             alt='background image' 
             className='rounded-3xl w-full h-auto object-cover' 
             fill 
